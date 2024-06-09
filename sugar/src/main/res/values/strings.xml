@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cutting Out Sugar</string>
+    <string name="num_counter">0</string>
+    <string name="counter">Number Of Glasses</string>
+    <string name="days_pass">Days pass</string>
+    <string name="num_days">0</string>
+    <string name="average">Average : </string>
+    <string name="num_avg">0</string>
+    <string name="avg_of">of glasses per day </string>
+    <string name="add">I drank a drink with sugar</string>
+    <string name="reset">New start- no sugar!</string>
+</resources>

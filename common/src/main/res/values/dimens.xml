@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_size">42sp</dimen>
+    <dimen name="general_margin">32dp</dimen>
+    <dimen name="subTitle_size">24sp</dimen>
+    <dimen name="small_margin">16dp</dimen>
+    <dimen name="margin_horizontal">8dp</dimen>
+    <dimen name="xsmall_margin">8dp</dimen>
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="radius">5dp</dimen>
+    <dimen name="stroke_width">3dp</dimen>
+    <dimen name="image_size">200dp</dimen>
+</resources>

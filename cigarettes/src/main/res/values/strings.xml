@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Quitting Cigarettes</string>
+    <string name="counter">Number Of Cigarettes</string>
+    <string name="num_counter">0</string>
+    <string name="days_pass">Days pass</string>
+    <string name="num_days">0</string>
+    <string name="average">Average : </string>
+    <string name="num_avg">0</string>
+    <string name="avg_of">of cigarettes per day </string>
+    <string name="add">I smoked a cigarette</string>
+    <string name="reset">Lets start again</string>
+</resources>

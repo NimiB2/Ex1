@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EASY QUITTING</string>
+    <string name="counter">COUNTER</string>
+    <string name="num_counter">0</string>
+    <string name="days_pass">Days pass</string>
+    <string name="num_days">0</string>
+    <string name="average">AVERAGE</string>
+    <string name="num_avg">0</string>
+    <string name="avg_of">of</string>
+    <string name="add">ADD</string>
+    <string name="reset">RESET</string>
+
+</resources>
