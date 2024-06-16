@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DataManager {
+    private static final String KEY_FIRST_LAUNCH_DATE = "firstLaunchDate";
     private static final String PREFS_NAME = "ReHubPrefs";
     private static final String KEY_USE_COUNTER = "useCounter";
     private static final String KEY_DAYS_PASSED = "daysPassed";
@@ -22,6 +23,10 @@ public class DataManager {
     public DataManager(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         useCounter = sharedPreferences.getInt(KEY_USE_COUNTER, 0);
+
+        if (sharedPreferences.getString(KEY_FIRST_LAUNCH_DATE, "").isEmpty()) {
+            setFirstLaunchDate(getCurrentDate());
+        }
     }
 
     public int getUseCounter() {
@@ -65,14 +70,26 @@ public class DataManager {
     }
 
     public void updateDaysPassed() {
-        String lastUpdate = getLastUpdate();
+        String firstLaunchDate = getFirstLaunchDate();
         String today = getCurrentDate();
 
-        if (!today.equals(lastUpdate)) {
-            setDaysPassed(getDaysPassed() + 1);
-            setLastUpdate(today);
+        int daysPassed = calculateDaysDifference(firstLaunchDate, today);
+        setDaysPassed(daysPassed);
+    }
+
+    private int calculateDaysDifference(String startDate, String endDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        try {
+            Date start = sdf.parse(startDate);
+            Date end = sdf.parse(endDate);
+            long difference = end.getTime() - start.getTime();
+            return (int) (difference / (1000 * 60 * 60 * 24));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
         }
     }
+
 
     public double calculateAverageUse() {
         int daysPassed = getDaysPassed();
@@ -82,4 +99,15 @@ public class DataManager {
     private String getCurrentDate() {
         return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     }
+
+    private String getFirstLaunchDate() {
+        return sharedPreferences.getString(KEY_FIRST_LAUNCH_DATE, "");
+    }
+
+    private void setFirstLaunchDate(String date) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_FIRST_LAUNCH_DATE, date);
+        editor.apply();
+    }
+
 }
